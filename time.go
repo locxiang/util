@@ -47,3 +47,14 @@ func TimeMillisecondStr(str string) int64 {
 	return TimeMillisecond(timed)
 
 }
+
+
+
+type TimeSlice []time.Time
+
+func (s TimeSlice) Len() int { return len(s) }
+
+func (s TimeSlice) Swap(i, j int) { s[i], s[j] = s[j], s[i] }
+
+func (s TimeSlice) Less(i, j int) bool { return s[j].Before(s[i]) }
+
